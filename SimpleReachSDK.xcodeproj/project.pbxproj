@@ -428,6 +428,7 @@
 				19441CB71A47EA4200E5834C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		19441CB81A47EA4200E5834C /* Build configuration list for PBXNativeTarget "SimpleReachSDKTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +437,7 @@
 				19441CBA1A47EA4200E5834C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
