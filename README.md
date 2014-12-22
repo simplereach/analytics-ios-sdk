@@ -56,4 +56,12 @@ Authors, channels, and tags are entered as NSArrays and converted to a comma del
 
 iframe defaults to true if no value is specified, and ignoreErrors defaults to false.
 
+The user_id parameter is automatically set to the UUID of the device.
+
+All parameters are filtered for strange characters. 
+
+```objective-c 
+àáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð,.#&'- 
+```
+
 
