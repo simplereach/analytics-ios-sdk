@@ -25,13 +25,13 @@ NSString *const SIMPLEREACH_URL = @"http://edge.simplereach.com/n";
             ignoreErrors:(BOOL)ignoreErrors
               landingURL:(NSString *)landingURL
                 callback:(NSString *)callback {
-    
+
     NSString *authorsString = [authors componentsJoinedByString:@", "];
     NSString *channelsString = [channels componentsJoinedByString:@", "];
     NSString *tagsString = [tags componentsJoinedByString:@", "];
-    
+
     date = [date isKindOfClass:[NSDate class]] ? [self UTCDateFromDate:date] : date;
-    
+
     url = [self sanitizeQueryParameter:url];
     title = [self sanitizeQueryParameter:title];
     date = [self sanitizeQueryParameter:date];
@@ -45,19 +45,19 @@ NSString *const SIMPLEREACH_URL = @"http://edge.simplereach.com/n";
     landingURL = [self sanitizeQueryParameter:landingURL];
     NSString *iframeQuery;
     NSString *ignoreErrorsQuery;
-    
+
     if (iframe == nil) {
         iframeQuery = @"true";
     } else {
         iframeQuery = iframe ? @"true" : @"false";
     }
-    
+
     if (ignoreErrors == nil) {
         ignoreErrorsQuery = @"false";
     } else {
         ignoreErrorsQuery = ignoreErrors ? @"true" : @"false";
     }
-    
+
     NSString *urlString = [NSString stringWithFormat:@"%@?pid=%@&url=%@&title=%@&date=%@&authors=%@&domain=%@&page_url=%@&channels=%@&tags=%@&iframe=%@&userID=%@&ignore_errors=%@&landing_url=%@&cb=%@]", SIMPLEREACH_URL ,pid, url, title, date, authorsString, domain, pageURL, channelsString, tagsString, iframeQuery, userID, ignoreErrorsQuery, landingURL, callback];
     NSURL *simplereachURL = [NSURL URLWithString:urlString];
     NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:simplereachURL];
@@ -83,24 +83,24 @@ NSString *const SIMPLEREACH_URL = @"http://edge.simplereach.com/n";
     if (queryParameter == nil) {
         return @"";
     }
-    
+
     // Remove any strange characters from string.
     queryParameter = [self searchAndRemoveText:queryParameter];
-    
+
     NSString *sanitizedQueryParameter = [self stringIsURLEncoded:queryParameter] ? queryParameter : [self urlEncodeString:queryParameter];
-    
+
     return sanitizedQueryParameter;
 }
-     
+
 + (NSString *)urlEncodeString:(NSString *)unescapedString {
     NSString *escapedString = [unescapedString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
-    
+
     return escapedString;
 }
 
 + (NSString *)unencodeString:(NSString *)escapedString {
     NSString *unescapedString = [escapedString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
+
     return unescapedString;
 }
 
@@ -122,14 +122,14 @@ NSString *const SIMPLEREACH_URL = @"http://edge.simplereach.com/n";
 + (NSString *)searchAndRemoveText:(NSString *)beforeText
 {
     NSRange range = NSMakeRange(0, beforeText.length);
-    
-    NSString *pattern = @"[àáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð]+";
+
+    NSString *pattern = @"[łńøØßŒÆ∂ð]+";
     NSError *error = NULL;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
-    
+
     // Call the NSRegularExpression method to do the replacement for us
     NSString *afterText = [regex stringByReplacingMatchesInString:beforeText options:0 range:range withTemplate:@""];
-    
+
     return afterText;
 }
 
@@ -137,7 +137,7 @@ NSString *const SIMPLEREACH_URL = @"http://edge.simplereach.com/n";
     NSString *uuidString = nil;
     // get os version
     NSUInteger currentOSVersion = [[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] integerValue];
-    
+
     if(currentOSVersion <= 5) {
         if([[NSUserDefaults standardUserDefaults] valueForKey:@"udid"]) {
             uuidString = [[NSUserDefaults standardUserDefaults] valueForKey:@"udid"];
