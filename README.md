@@ -5,7 +5,7 @@ analytics-ios-sdk
 
 See files labelled SRPageView.h and SRPageView.m
 
-To create a URL link and fetch response from link, enter the following command in your iOS program: 
+To create a URL link and fetch response from link, enter the following command in your iOS program:
 
 ```objective-c
 [SRPageView fetchPageWithPID:@"000000000000000000000000"
@@ -21,7 +21,7 @@ To create a URL link and fetch response from link, enter the following command i
                     ignoreErrors:nil
                       landingURL:nil
                         callback:@"SPR.API.callbacks.cb3582146"];
-    
+
     return YES;
 ```
 
@@ -58,10 +58,10 @@ iframe defaults to true if no value is specified, and ignoreErrors defaults to f
 
 The user_id parameter is automatically set to the UUID of the device.
 
-All parameters are filtered for strange characters. 
+All parameters are filtered for strange characters.
 
-```objective-c 
-àáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð
+```objective-c
+    NSString *pattern = @"[łńøØßŒÆ∂ð]+";
 ```
 
 
