@@ -28,7 +28,7 @@ To create a URL link and fetch response from link, enter the following command i
 In your console, you should see the following statement logged:
 
 **Status Code: 200
- SPRAPIcallbackscb3582146]({"id":"dbcc0fa50ff9772d6b4d8ce5867c32d4","pid":"000000000000000000000000","sid":"029c9f81-89a0-11e4-8925-22000b2b045c","uid":"029c9f97-89a0-11e4-8925-22000b2b045c","url":"http://wwwexamplecom/simplereachexamples","fb":false,"tw":false,"rd":false,"pi":false,"li":false,"de":false});**
+ SPRAPIcallbackscb3582146]({"id":"dbcc0fa50ff9772d6b4d8ce5867c32d4","pid":"000000000000000000000000","sid":"029c9f81-89a0-11e4-8925-22000b2b045c","uid":"029c9f97-89a0-11e4-8925-22000b2b045c","url":"http://www.example.com/simplereachexamples","fb":false,"tw":false,"rd":false,"pi":false,"li":false,"de":false});**
 
 #### Method parameters
 
