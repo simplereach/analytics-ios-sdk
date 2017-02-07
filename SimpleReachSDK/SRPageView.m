@@ -8,7 +8,7 @@
 
 #import "SRPageView.h"
 
-NSString *const SIMPLEREACH_URL = @"http://edge.simplereach.com/n";
+NSString *const SIMPLEREACH_URL = @"https://edge.simplereach.com/n";
 
 @implementation SRPageView
 
